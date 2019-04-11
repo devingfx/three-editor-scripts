@@ -1045,9 +1045,10 @@ Object.defineProperties( THREE.OrbitControls.prototype, {
 function init( event )
 {
 	scene.controls = new THREE.OrbitControls( camera, renderer.domElement )
-	scene.controls.enableDamping = this.userData.controls.damping
-	scene.controls.autoRotate = this.userData.controls.rotate
-	scene.controls.enableRotate = this.userData.controls.rotate
+	let config = this.userData.controls || {}
+	scene.controls.enableDamping = config.damping
+	scene.controls.autoRotate = config.rotate
+	scene.controls.enableRotate = config.rotate
 	//TODO add more params
 }
 
